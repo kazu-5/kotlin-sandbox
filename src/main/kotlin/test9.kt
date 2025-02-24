@@ -40,7 +40,9 @@ fun StableMariage(male: Array<IntArray>, female: Array<IntArray>): IntArray {
                     partner[man] = woman
                     break
                 } else {
-                    freeMen.add(man)
+                    if (nextProposal[man] < n) {
+                        freeMen.add(man) // 修正: 婚約できなかったらもう一度プロポーズ
+                    }
                 }
             }
         }
