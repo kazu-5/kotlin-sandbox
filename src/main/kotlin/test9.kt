@@ -39,6 +39,8 @@ fun StableMariage(male: Array<IntArray>, female: Array<IntArray>): IntArray {
                     femalePartner[woman] = man
                     partner[man] = woman
                     break
+                } else {
+                    freeMen.add(man)
                 }
             }
         }
