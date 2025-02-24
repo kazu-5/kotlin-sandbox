@@ -38,17 +38,28 @@ fun StableMariage(male: Array<IntArray>, female: Array<IntArray>): IntArray {
                     freeMen.add(currentMan)
                     femalePartner[woman] = man
                     partner[man] = woman
+                    freeMen.add(currentMan)
                     break
-                } else {
-                    if (nextProposal[man] < n) {
-                        freeMen.add(man) // 修正: 婚約できなかったらもう一度プロポーズ
-                    }
                 }
             }
         }
+        if(partner[man] == -1 && nextProposal[man] < n) {
+            freeMen.add(man)
+        }
+
     }
-    return partner
+//    return partner
+
+    val result = IntArray(n) { -1 }
+    for (i in 0 until n) {
+        if (femalePartner[i] != -1) {
+            result[i] = femalePartner[i]
+        }
+    }
+
+    return result
 }
+
 
 fun main() {
     
